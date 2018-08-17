@@ -21,12 +21,11 @@ import com.bnb.utilities.*;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import static com.bnb.utilities.TestConstants.logger;
+
 public class MyInfoStepDefs {
 
 	@Given("user logs in using {string} {string}")
 	public void user_logs_in_using(String username, String password) throws Exception{
-		logger.info(password,username);
 		Driver.getDriver().get(ConfigurationReader.getProperty("qa1_url"));
 		SigninPage signInPage = new SigninPage();
 		signInPage.email.sendKeys(username);

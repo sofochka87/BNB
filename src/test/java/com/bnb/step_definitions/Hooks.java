@@ -10,7 +10,7 @@ import com.bnb.utilities.*;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-
+import static com.bnb.utilities.TestConstants.logger;
 public class Hooks {
 
 	@Before
@@ -31,11 +31,13 @@ public class Hooks {
 	public void setUpDBConnection() {
 		BrowserUtils.waitFor(5);
 		System.out.println("HHHHHEEEELLLLOOOO");
+		logger.info("Creating Connection");
 		DBUtils.createConnection();
 	}
 
 	@After("@db")
 	public void tearDownDBConnection() {
+		logger.info("Destroying connection");
 		DBUtils.destroy();
 	}
 
