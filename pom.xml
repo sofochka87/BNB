@@ -84,6 +84,30 @@
 			</plugin>
 			
 			<plugin>
+				<groupId>net.masterthought</groupId>
+				<artifactId>maven-cucumber-reporting</artifactId>
+				<version>3.15.0</version>
+				<executions>
+					<execution>
+						<id>execution</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<projectname>TestProject</projectname>
+							<!-- path to the report that will be generated -->
+							<outputdirectory>${project.build.directory}/cucumber-html-reports</outputdirectory>
+							<!-- path to the json file that will be used to genetrate report -->
+							<!-- it has to match the one on the cukesrunner -->
+							<cucumberoutput>${project.build.directory}/target/cucumber.json</cucumberoutput>
+							<enableflashcharts></enableflashcharts>
+						</configuration>
+					</execution>
+				</executions>
+
+			</plugin>
+			<plugin>
 				<groupId>com.github.temyers</groupId>
 				<artifactId>cucumber-jvm-parallel-plugin</artifactId>
 				<version>5.0.0</version>
